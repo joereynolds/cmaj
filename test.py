@@ -20,30 +20,60 @@ class TestCmaj(unittest.TestCase):
         ]
         self.assertEqual(rotated, expected_rotated)
 
+    def test_rotate_to_key_with_flats(self):
+        non_rotated = [
+            'C', 'Db', 'D', 'Eb', 
+            'E', 'F', 'Gb', 'G', 
+            'Ab', 'A', 'Bb', 'B'
+        ]
+
+        rotated = cmaj.rotate_to_key(non_rotated, 'Bb')
+        expected_rotated = [
+            'Bb', 'B', 'C', 'Db', 
+            'D', 'Eb', 'E', 'F', 
+            'Gb', 'G', 'Ab', 'A', 
+        ]
+        self.assertEqual(rotated, expected_rotated)
+
     def test_get_notes_for_chord(self):
-        expected = 'GBDF#'
+        expected = 'G B D F# '
         actual = cmaj.get_notes_for_chord('1', '3', '5', '7', key='G')
         self.assertEqual(expected, actual)
 
+    def test_get_notes_for_chord_on_flat_key(self):
+        expected = 'Bb D F '
+        actual = cmaj.get_notes_for_chord('1', '3', '5', key='Bb')
+        self.assertEqual(expected, actual)
+
     def test_get_notes_for_chord_with_default_argument(self):
-        expected = 'CEGB'
+        expected = 'C E G B '
         actual = cmaj.get_notes_for_chord('1', '3', '5', '7')
         self.assertEqual(expected, actual)
 
-    @unittest.skip('Function not implemented')
     def test_scale_on_neutral_key(self):
+        expected = 'C D E F G A B '
         actual = cmaj.scale('C')
-        expected = 'CDEFGAB'
         self.assertEqual(actual, expected)
 
-    @unittest.skip('Function not implemented')
+    def test_get_scale_type_from_input(self):
+        expected = 'major'
+        actual = cmaj.get_scale_type_from_input('C')
+        self.assertEqual(actual, expected)
+
+    def test_get_scale_type_from_input_with_a_minor_key(self):
+        expected = 'minor'
+        actual = cmaj.get_scale_type_from_input('Cm')
+        self.assertEqual(actual, expected)
+        
     def test_scale_on_flat_key(self):
-        pass
+        expected = 'Bb C D Eb F G A '
+        actual = cmaj.scale('Bb')
+        self.assertEqual(actual, expected)
 
-    @unittest.skip('Function not implemented')
     def test_scale_on_sharp_key(self):
-        pass
-
+        expected = 'G A B C D E F# '
+        actual = cmaj.scale('G')
+        self.assertEqual(actual, expected)
 
 
 if __name__ == '__main__':
