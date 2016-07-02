@@ -36,6 +36,14 @@ class TestCmaj(unittest.TestCase):
         expected = 'CDEFGAB'
         self.assertEqual(actual, expected)
 
+    @unittest.skip('Function not implemented')
+    def test_scale_on_flat_key(self):
+        pass
+
+    @unittest.skip('Function not implemented')
+    def test_scale_on_sharp_key(self):
+        pass
+
 
 
 if __name__ == '__main__':
