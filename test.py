@@ -55,6 +55,10 @@ class TestCmaj(unittest.TestCase):
         actual = cmaj.scale('C')
         self.assertEqual(actual, expected)
 
+    @unittest.skip('not implemented')
+    def test_scale_on_minor_key(self):
+        pass
+
     def test_get_scale_type_from_input(self):
         expected = 'major'
         actual = cmaj.get_scale_type_from_input('C')
