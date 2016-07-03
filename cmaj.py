@@ -19,15 +19,18 @@ def rotate_to_key(notes_list, key):
     return rotated
 
 def get_notes_from_intervals(*intervals, key='C'):
+    """
+
+    """
 
     _scale = get_scale_type(key)
     rotated_scale = rotate_to_key(_scale, key)
 
-    chord = ''
+    notes = ''
     for interval in intervals:
-        chord += rotated_scale[int(f.scale_to_chromatic[interval]) -1] + ' '
+        notes += rotated_scale[int(f.scale_to_chromatic[interval]) -1] + ' '
 
-    return chord
+    return notes
 
 def get_scale_type(key):
     """
@@ -46,11 +49,16 @@ def scale(key):
     Returns
         'C D E F G A B '
     """
+
     mode = 'ionian'
     if 'm' in key:
         mode = 'aeolian'
     
     scale_to_return = get_notes_from_intervals(*f.formulas['modes'][mode], key=key)
+    return scale_to_return
+
+def scale_intervals(intervals):
+    scale_to_return = get_notes_from_intervals(*intervals.split(), key='C')
     return scale_to_return
 
 

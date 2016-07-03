@@ -107,7 +107,6 @@ class TestCmaj(unittest.TestCase):
         actual = cmaj.get_chord_type('Cm')
         self.assertEqual(expected, actual)
 
-    #@TODO fix failing test cases
     def test_scale(self):
         tests = [
             #Minor key
@@ -118,6 +117,20 @@ class TestCmaj(unittest.TestCase):
             #Natural
             ['G A B C D E F# ', cmaj.scale('G')],
             ['C D E F G A B ', cmaj.scale('C')],
+        ]
+
+        for test_case in tests:
+            expected = test_case[0]
+            actual = test_case[1]
+            self.assertEqual(expected, actual)
+
+    #@TODO add test cases for flats
+    def test_scale_intervals(self):
+        tests = [
+            #natural
+            ['C D E F G A B ', cmaj.scale_intervals('1 2 3 4 5 6 7')],
+            #sharps
+            ['C D# E F# G# A B ', cmaj.scale_intervals('1 #2 3 #4 #5 6 7')],
         ]
 
         for test_case in tests:
