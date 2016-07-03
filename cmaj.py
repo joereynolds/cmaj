@@ -44,13 +44,19 @@ scales = {
 }
 
 formulas = {
-    'ionian': ['1', '2', '3', '4', '5', '6', '7'],
-    'dorian': ['1', '2', 'b3', '4', '5', '6', 'b7'],
-    'phrygian': ['1', 'b2', 'b3', '4', '5', 'b6', 'b7'],
-    'lydian': ['1', '2', '3', '#4', '5', '6', '7'],
-    'mixolydian': ['1', '2', '3', '4', '5', '6', 'b7'],
-    'aeolian': ['1', '2', 'b3', '4', '5', 'b6', 'b7'],
-    'locrian': ['1', 'b2', 'b3', '4', 'b5', 'b6', 'b7'],
+    'modes': {
+        'ionian': ['1', '2', '3', '4', '5', '6', '7'],
+        'dorian': ['1', '2', 'b3', '4', '5', '6', 'b7'],
+        'phrygian': ['1', 'b2', 'b3', '4', '5', 'b6', 'b7'],
+        'lydian': ['1', '2', '3', '#4', '5', '6', '7'],
+        'mixolydian': ['1', '2', '3', '4', '5', '6', 'b7'],
+        'aeolian': ['1', '2', 'b3', '4', '5', 'b6', 'b7'],
+        'locrian': ['1', 'b2', 'b3', '4', 'b5', 'b6', 'b7'],
+    },
+    'chords': {
+        'major': ['1', '3', '5'],
+        'minor': ['1', 'b3', '5']
+    }
 }
 
 def rotate_to_key(notes_list, key):
@@ -67,18 +73,25 @@ def rotate_to_key(notes_list, key):
         rotated.insert(0, rotated.pop())
     return rotated
 
-def get_notes_for_chord(*notes, key='C'):
+def get_chord_type(chord):
+    """'Parses' input for a chord and returns the type of chord from it"""
+    if len(chord) == 1:
+        return 'major'
+    if 'm' in chord:
+        return 'minor'
 
-    _scale = get_suitable_scale_type(key)
+def get_notes_from_intervals(*intervals, key='C'):
+
+    _scale = get_scale_type(key)
 
     rotated_scale = rotate_to_key(_scale, key)
     chord = ''
 
-    for note in notes:
-        chord += rotated_scale[int(scale_to_chromatic[note]) -1] + ' '
+    for interval in intervals:
+        chord += rotated_scale[int(scale_to_chromatic[interval]) -1] + ' '
     return chord
 
-def get_suitable_scale_type(key):
+def get_scale_type(key):
     """
     'Parses' the key and gives back a suitable
     chromatic scale
@@ -95,16 +108,11 @@ def scale(key):
     Returns
         'CDEFGAB'
     """
-    _scale = get_suitable_scale_type(key)
-
-    rotated_scale = rotate_to_key(_scale, key)
-
-    scale_to_return = ''
-    for interval in formulas['ionian']:
-        scale_to_return += rotated_scale[int(scale_to_chromatic[interval]) -1] + ' '
+    scale_to_return = get_notes_from_intervals(*formulas['modes']['ionian'], key=key)
     return scale_to_return
 
-def get_scale_type_from_input(key):
-    if 'm' in key:
-        return 'minor'
-    return 'major'
+def chord(chord):
+    """chord('C') -> 'C E G '"""
+    chord_type = get_chord_type(chord)
+    returned_chord = get_notes_from_intervals(*formulas['chords'][chord_type])
+    return returned_chord
