@@ -11,26 +11,22 @@ def rotate_to_key(notes_list, key):
     """
     rotated = list(notes_list) #Create a copy
 
+    if 'm' in key:
+        key = key[:-1]
+
     while rotated[0] != key:
         rotated.insert(0, rotated.pop())
     return rotated
 
-def get_chord_type(chord):
-    """'Parses' input for a chord and returns the type of chord from it"""
-    if len(chord) == 1:
-        return 'major'
-    if 'm' in chord:
-        return 'minor'
-
 def get_notes_from_intervals(*intervals, key='C'):
 
     _scale = get_scale_type(key)
-
     rotated_scale = rotate_to_key(_scale, key)
-    chord = ''
 
+    chord = ''
     for interval in intervals:
         chord += rotated_scale[int(f.scale_to_chromatic[interval]) -1] + ' '
+
     return chord
 
 def get_scale_type(key):
@@ -53,8 +49,18 @@ def scale(key):
     scale_to_return = get_notes_from_intervals(*f.formulas['modes']['ionian'], key=key)
     return scale_to_return
 
+def get_chord_type(chord):
+    """'Parses' input for a chord and returns the type of chord from it"""
+    if 'm' in chord:
+        return 'minor'
+    return 'major'
+
 def chord(chord):
     """chord('C') -> 'C E G '"""
     chord_type = get_chord_type(chord)
-    returned_chord = get_notes_from_intervals(*f.formulas['chords'][chord_type], key=chord[0]) 
+
+    returned_chord = get_notes_from_intervals(
+        *f.formulas['chords'][chord_type], 
+        key=chord.split()[0]
+    ) 
     return returned_chord
