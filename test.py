@@ -55,10 +55,19 @@ class TestCmaj(unittest.TestCase):
         actual = cmaj.scale('C')
         self.assertEqual(actual, expected)
 
+
+    #@TODO refactor tests to be like this shining example
     def test_chord(self):
-        expected = 'C E G '
-        actual = cmaj.chord('C')
-        self.assertEqual(expected, actual)
+        tests = [
+            ['C E G ', cmaj.chord('C')],
+            ['G B D ', cmaj.chord('G')],
+            ['A C# E ', cmaj.chord('A')]
+        ]
+
+        for test_case in tests:
+            expected = test_case[0]
+            actual = test_case[1]
+            self.assertEqual(expected, actual)
 
     def test_get_chord_type_for_major_chord(self):
         expected = 'major'
