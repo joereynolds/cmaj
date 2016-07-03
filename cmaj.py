@@ -44,10 +44,15 @@ def scale(key):
     i.e.
         scale('C')
     Returns
-        'CDEFGAB'
+        'C D E F G A B '
     """
-    scale_to_return = get_notes_from_intervals(*f.formulas['modes']['ionian'], key=key)
+    mode = 'ionian'
+    if 'm' in key:
+        mode = 'aeolian'
+    
+    scale_to_return = get_notes_from_intervals(*f.formulas['modes'][mode], key=key)
     return scale_to_return
+
 
 def get_chord_type(chord):
     """'Parses' input for a chord and returns the type of chord from it"""

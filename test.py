@@ -56,12 +56,6 @@ class TestCmaj(unittest.TestCase):
             actual = test_case[1]
             self.assertEqual(expected, actual)
 
-    def test_scale_on_neutral_key(self):
-        expected = 'C D E F G A B '
-        actual = cmaj.scale('C')
-        self.assertEqual(actual, expected)
-
-
     def test_chord(self):
         tests = [
             ['C E G ', cmaj.chord('C')],
@@ -117,13 +111,13 @@ class TestCmaj(unittest.TestCase):
     def test_scale(self):
         tests = [
             #Minor key
-            #['E F# G A B C D ', cmaj.scale('Em')],
+            ['E F# G A B C D ', cmaj.scale('Em')],
+            ['Bb C Db Eb F Gb Ab ', cmaj.scale('Bbm')],
             #Flat
             ['Bb C D Eb F G A ', cmaj.scale('Bb')],
             #Natural
             ['G A B C D E F# ', cmaj.scale('G')],
-            #Sharp
-            #['C# D# E# F# G# A# B# ', cmaj.scale('C#')]
+            ['C D E F G A B ', cmaj.scale('C')],
         ]
 
         for test_case in tests:
