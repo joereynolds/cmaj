@@ -51,10 +51,7 @@ class TestCmaj(unittest.TestCase):
             ],
         ]
 
-        for test_case in tests:
-            expected = test_case[0]
-            actual = test_case[1]
-            self.assertEqual(expected, actual)
+        self.check_tests(tests)
 
     def test_chord(self):
         tests = [
@@ -65,12 +62,26 @@ class TestCmaj(unittest.TestCase):
             ['Bb D F ', cmaj.chord('Bb')],
             ['Bb Db F ', cmaj.chord('Bbm')],
             ['F# A C# ', cmaj.chord('F#m')],
+            ['A C E G ', cmaj.chord('Am7')],
+            ['D F A C ', cmaj.chord('Dm7')],
+            ['C Eb G Bb ', cmaj.chord('Cm7')],
         ]
+        self.check_tests(tests)
 
+
+    def check_tests(self, tests):
         for test_case in tests:
             expected = test_case[0]
             actual = test_case[1]
             self.assertEqual(expected, actual)
+
+    def test_strip_noise_from_key_signatures(self):
+        tests = [
+            ['A', cmaj.strip_noise_from_key_signature('Am7')],
+            ['Bb', cmaj.strip_noise_from_key_signature('Bbm7')],
+        ]
+
+        self.check_tests(tests)
 
     def test_get_scale_type(self):
 
@@ -92,10 +103,7 @@ class TestCmaj(unittest.TestCase):
             [sharp, cmaj.get_scale_type('C#')],
         ]
 
-        for test_case in tests:
-            expected = test_case[0]
-            actual = test_case[1]
-            self.assertEqual(expected, actual)
+        self.check_tests(tests)
 
     def test_get_chord_type_for_major_chord(self):
         expected = 'major'
@@ -119,10 +127,7 @@ class TestCmaj(unittest.TestCase):
             ['C D E F G A B ', cmaj.scale('C')],
         ]
 
-        for test_case in tests:
-            expected = test_case[0]
-            actual = test_case[1]
-            self.assertEqual(expected, actual)
+        self.check_tests(tests)
 
     #@TODO add test cases for flats
     def test_scale_intervals(self):
@@ -133,10 +138,7 @@ class TestCmaj(unittest.TestCase):
             ['C D# E F# G# A B ', cmaj.scale_intervals('1 #2 3 #4 #5 6 7')],
         ]
 
-        for test_case in tests:
-            expected = test_case[0]
-            actual = test_case[1]
-            self.assertEqual(expected, actual)
+        self.check_tests(tests)
 
 
 if __name__ == '__main__':

@@ -11,18 +11,22 @@ def rotate_to_key(notes_list, key):
     """
     rotated = list(notes_list) #Create a copy
 
-    if 'm' in key:
-        key = key[:-1]
+    key = strip_noise_from_key_signature(key)
 
     while rotated[0] != key:
         rotated.insert(0, rotated.pop())
     return rotated
 
+def strip_noise_from_key_signature(key):
+    """Removes any unneccessary characters (7,9,11,m,M etc...)"""
+    #Change this to a map or something
+    key = key.replace('7', '')
+    key = key.replace('5', '')
+    key = key.replace('m', '')
+    key = key.replace('M', '')
+    return key
+
 def get_notes_from_intervals(*intervals, key='C'):
-    """
-
-    """
-
     _scale = get_scale_type(key)
     rotated_scale = rotate_to_key(_scale, key)
 
@@ -37,7 +41,9 @@ def get_scale_type(key):
     'Parses' the key and gives back a suitable
     chromatic scale
     """
-    if 'b' in key:
+    key = key.replace('7', '')
+    key = key.replace('9', '')
+    if 'b' in key or key in f.scales['flat']:
         return f.scales['chromatic-flat']
     return f.scales['chromatic-sharp']
 
@@ -64,6 +70,11 @@ def scale_intervals(intervals):
 
 def get_chord_type(chord):
     """'Parses' input for a chord and returns the type of chord from it"""
+
+    #Refactor this when it gets messier
+    if '7' in chord:
+        if 'm' in chord:
+            return 'minor7'
     if 'm' in chord:
         return 'minor'
     return 'major'
