@@ -53,6 +53,20 @@ class TestCmaj(unittest.TestCase):
 
         self.check_tests(tests)
 
+    def test_nth_partial(self):
+        tests = [
+            [
+                880,
+                cmaj.partial(440, 2)
+            ],
+            [
+                440,
+                cmaj.partial(440, 1)
+            ]
+        ]
+
+        self.check_tests(tests)
+
     def test_chord(self):
         tests = [
             ['C E G ', cmaj.chord('C')],

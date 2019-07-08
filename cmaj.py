@@ -88,3 +88,6 @@ def chord(chord):
         key=chord.split()[0]
     ) 
     return returned_chord
+
+def partial(fundamental, n):
+    return fundamental * n
