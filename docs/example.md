@@ -63,6 +63,13 @@ Input:
     cmajor --note=A4
 Output:
     440hz
+    
+### Get the nth partial for a note
+
+Input:
+    cmajor --freq=440 4
+Output
+    1760
 
 ### Get common tones between two things
 
