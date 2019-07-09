@@ -70,6 +70,8 @@ class TestCmaj(unittest.TestCase):
     def test_chord(self):
         tests = [
             ['C E G ', cmaj.chord('C')],
+            ['C E G B ', cmaj.chord('CM7')],
+            ['C E G B D ', cmaj.chord('CM9')],
             ['G B D ', cmaj.chord('G')],
             ['E G B ', cmaj.chord('Em')],
             ['A C# E ', cmaj.chord('A')],
@@ -79,6 +81,8 @@ class TestCmaj(unittest.TestCase):
             ['A C E G ', cmaj.chord('Am7')],
             ['D F A C ', cmaj.chord('Dm7')],
             ['C Eb G Bb ', cmaj.chord('Cm7')],
+            ['C Eb G Bb D ', cmaj.chord('Cm9')],
+            ['D F A C E ', cmaj.chord('Dm9')],
         ]
         self.check_tests(tests)
 
