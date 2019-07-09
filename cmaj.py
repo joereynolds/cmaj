@@ -1,4 +1,5 @@
 import formula as f
+import math
 
 
 def rotate_to_key(notes_list, key):
@@ -104,3 +105,7 @@ def chord(chord):
 
 def partial(fundamental, n):
     return fundamental * n
+
+def midi_to_frequency(midi_note):
+    frequency = math.pow(2, (midi_note - 69) / 12) * 440
+    return round(frequency, 2)

@@ -147,6 +147,21 @@ class TestCmaj(unittest.TestCase):
 
         self.check_tests(tests)
 
+    def test_midi_to_frequency(self):
+        tests = [
+            [440.0, cmaj.midi_to_frequency(69)],
+            [622.25, cmaj.midi_to_frequency(75)],
+            [698.46, cmaj.midi_to_frequency(77)],
+            [659.26, cmaj.midi_to_frequency(76)],
+            [587.33, cmaj.midi_to_frequency(74)],
+            [554.37, cmaj.midi_to_frequency(73)],
+            [523.25, cmaj.midi_to_frequency(72)],
+            [493.88, cmaj.midi_to_frequency(71)],
+            [8.18, cmaj.midi_to_frequency(0)],
+        ]
+
+        self.check_tests(tests)
+
     #@TODO add test cases for flats
     def test_scale_intervals(self):
         tests = [
