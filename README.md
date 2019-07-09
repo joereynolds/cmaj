@@ -2,48 +2,30 @@
 
 Music theory from the command line.
 
-## Examples
+## Example
 
-### Scales
+```
+$ cmaj --scale=Em
+E F# G A B C D
 
-View major/minor, sharp/flat scales
+$ cmaj --scale=Bbm
+Bb C Db Eb F Gb Ab
 
-`cmaj --scale=Em`
+$ cmaj --scale=C
+C D E F G A B 
 
-`E F# G A B C D`
+$ cmaj --chord=C
+C E G
 
-`cmaj --scale=Bbm`
+$ cmaj --chord=Em9
+E G B D F#
 
-`Bb C Db Eb F Gb Ab`
+$ cmaj --chord=DM9
+D F# A C# E
 
-`cmaj --scale=C`
+$ cmaj --freq 440 3
+1320
+```
 
-`C D E F G A B `
-
-### Chords
-
-View a chord (minor, major, and 7/9 variants). 
-
-`cmaj --chord=C`
-
-`C E G`
-
-`cmaj --chord=Em`
-
-`E G B`
-
-`cmaj --chord=Em9`
-
-`E G B D F#`
-
-`cmaj --chord=DM9`
-
-`D F# A C# E`
-
-### Partials
-
-Get the nth partial of a frequency
-
-`cmaj --freq 440 3`
-
-`1320`
+Want to know more? Check out the [docs](./docs/cmaj.md) for an exhaustive list
+of every option.
