@@ -1,8 +1,8 @@
 # cmaj
-Music theory from the command line :D
+
+Music theory from the command line.
 
 ## Examples
-
 
 ### Scales
 
@@ -22,8 +22,8 @@ View major/minor, sharp/flat scales
 
 ### Chords
 
-View a chord. 
-At the moment only major and minor triads are supported but others (M7, m7, M9, m7, 7b9 etc...) are coming.
+View a chord (minor, major, and 7/9 variants). 
+
 `cmaj --chord=C`
 
 `C E G`
@@ -31,3 +31,19 @@ At the moment only major and minor triads are supported but others (M7, m7, M9, 
 `cmaj --chord=Em`
 
 `E G B`
+
+`cmaj --chord=Em9`
+
+`E G B D F#`
+
+`cmaj --chord=DM9`
+
+`D F# A C# E`
+
+### Partials
+
+Get the nth partial of a frequency
+
+`cmaj --freq 440 3`
+
+`1320`
