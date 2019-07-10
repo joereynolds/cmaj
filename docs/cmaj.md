@@ -23,6 +23,12 @@ option supports the following:
 
 `cmaj --mtof 62`
 
+## --mton
+
+`--mton` returns the musical note of a given MIDI note.
+
+`cmaj --mton 62`
+
 ## --scale
 
 `--scale` returns the individual notes that make a specified scale.
