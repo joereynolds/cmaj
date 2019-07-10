@@ -9,6 +9,7 @@ def run():
     parser.add_argument('--chord',)
     parser.add_argument('--freq', nargs=2)
     parser.add_argument('--mtof')
+    parser.add_argument('--mton')
 
     args = parser.parse_args()
 
@@ -23,6 +24,9 @@ def run():
 
     if args.mtof:
         print(cmaj.midi_to_frequency(int(args.mtof)))
+
+    if args.mton:
+        print(cmaj.midi_to_note(int(args.mton)))
 
 if __name__ == '__main__':
     run()

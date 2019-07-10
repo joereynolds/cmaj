@@ -173,6 +173,16 @@ class TestCmaj(unittest.TestCase):
 
         self.check_tests(tests)
 
+    def test_midi_to_note(self):
+        tests = [
+            ['A4', cmaj.midi_to_note(69)],
+            ['A0', cmaj.midi_to_note(21)],
+            ['midi note 12 is out of range. Accepted values are between 21 and 108', cmaj.midi_to_note(12)],
+        ]
+
+        self.check_tests(tests)
+
+
 
 if __name__ == '__main__':
     unittest.main()
