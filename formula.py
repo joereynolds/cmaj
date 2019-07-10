@@ -42,9 +42,10 @@ scales = {
         'E', 'F', 'Gb', 'G',
         'Ab', 'A', 'Bb', 'B'
     ],
+
     #list of scales that use flats instead of sharps
     # that aren't already covered by having a 'b' in their name
-    'flat': ['Cm', 'Dm', 'Gm', 'Fm']
+    'flat': ['Cm', 'Dm', 'Gm', 'Fm', 'F']
 }
 
 formulas = {

@@ -146,6 +146,15 @@ class TestCmaj(unittest.TestCase):
             ['G A B C D E F# ', cmaj.scale('G')],
             ['C D E F G A B ', cmaj.scale('C')],
 
+            # Ionian
+            ['A B C# D E F# G# ', cmaj.scale('A', 'ionian')],
+            ['B C# D# E F# G# A# ', cmaj.scale('B', 'ionian')],
+            ['C D E F G A B ', cmaj.scale('C', 'ionian')],
+            ['D E F# G A B C# ', cmaj.scale('D', 'ionian')],
+            ['E F# G# A B C# D# ', cmaj.scale('E', 'ionian')],
+            ['F G A Bb C D E ', cmaj.scale('F', 'ionian')],
+            ['G A B C D E F# ', cmaj.scale('G', 'ionian')],
+
             # Lydian
             ['A B C# D# E F# G# ', cmaj.scale('A', 'lydian')],
             ['C D E F# G A B ', cmaj.scale('C', 'lydian')],
