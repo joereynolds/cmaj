@@ -51,7 +51,7 @@ def get_scale_type(key):
 
     return f.scales['chromatic-sharp']
 
-def scale(key):
+def scale(key, mode='ionian'):
     """
     Returns the scale for a given key
     i.e.
@@ -60,7 +60,6 @@ def scale(key):
         'C D E F G A B '
     """
 
-    mode = 'ionian'
     if 'm' in key:
         mode = 'aeolian'
     

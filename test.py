@@ -138,11 +138,20 @@ class TestCmaj(unittest.TestCase):
             #Minor key
             ['E F# G A B C D ', cmaj.scale('Em')],
             ['Bb C Db Eb F Gb Ab ', cmaj.scale('Bbm')],
+
             #Flat
             ['Bb C D Eb F G A ', cmaj.scale('Bb')],
+
             #Natural
             ['G A B C D E F# ', cmaj.scale('G')],
             ['C D E F G A B ', cmaj.scale('C')],
+
+            # Lydian
+            ['A B C# D# E F# G# ', cmaj.scale('A', 'lydian')],
+            ['C D E F# G A B ', cmaj.scale('C', 'lydian')],
+            ['D E F# G# A B C# ', cmaj.scale('D', 'lydian')],
+            ['E F# G# A# B C# D# ', cmaj.scale('E', 'lydian')],
+            ['F G A B C D E ', cmaj.scale('F', 'lydian')],
         ]
 
         self.check_tests(tests)
