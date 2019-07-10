@@ -10,7 +10,6 @@ option supports the following:
 - Minor 7 chords `cmaj --chord Cm7`
 - Minor 9 chords `cmaj --chord Cm9`
 
-**Example**
 
 ## --freq
 
@@ -19,7 +18,6 @@ option supports the following:
 - Getting the 4th partial of 440 `cmaj --freq 440 4`
 - Getting the fundamental frequency `cmaj --freq 440 1`
 
-**Example**
 
 
 ## --mtof
@@ -28,7 +26,6 @@ option supports the following:
 
 `cmaj --mtof 62`
 
-**Example**
 
 
 ## --mton
@@ -37,7 +34,6 @@ option supports the following:
 
 `cmaj --mton 62`
 
-**Example**
 
 ```
 $ cmaj --mton 65
@@ -55,7 +51,6 @@ midi note 0 is out of range. Accepted values are between 21 and 108
 - Getting a major scale `cmaj --scale E`
 - Getting a minor scale `cmaj --scale Bbm`
 
-**Example**
 
 ```
 $ cmaj --scale Em
