@@ -45,7 +45,7 @@ scales = {
 
     #list of scales that use flats instead of sharps
     # that aren't already covered by having a 'b' in their name
-    'flat': ['Cm', 'Dm', 'Gm', 'Fm', 'F']
+    'flat': ['Cm', 'Dm', 'Gm', 'Fm', 'F'],
 }
 
 formulas = {
@@ -70,5 +70,7 @@ formulas = {
         'minor7':['1', 'b3', '5', 'b7'],
         'minor9':['1', 'b3', '5', 'b7', '2'],
 
+        # Dominant
+        'seven': ['1', '3', '5', 'b7'],
     }
 }

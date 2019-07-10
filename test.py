@@ -69,7 +69,49 @@ class TestCmaj(unittest.TestCase):
 
     def test_chord(self):
         tests = [
+
+            # Major triads
+
+            ## Naturals
+            ['A C# E ', cmaj.chord('A')],
+            ['B D# F# ', cmaj.chord('B')],
             ['C E G ', cmaj.chord('C')],
+            ['D F# A ', cmaj.chord('D')],
+            ['E G# B ', cmaj.chord('E')],
+            ['F A C ', cmaj.chord('F')],
+            ['G B D ', cmaj.chord('G')],
+
+            ## Sharps
+            # ['A C# E ', cmaj.chord('A#')],
+            # ['B D# F# ', cmaj.chord('B#')],
+            # ['C# E# G# ', cmaj.chord('C#')],
+            # ['D F# A ', cmaj.chord('D#')],
+            # ['E G# B ', cmaj.chord('E#')],
+            ['F# A# C# ', cmaj.chord('F#')],
+            # ['G B D ', cmaj.chord('G#')],
+
+            ## Flats
+            # ['A C# E ', cmaj.chord('A')],
+            # ['B D# F# ', cmaj.chord('B')],
+            # ['C E G ', cmaj.chord('C')],
+            # ['D F# A ', cmaj.chord('D')],
+            # ['E G# B ', cmaj.chord('E')],
+            # ['F A C ', cmaj.chord('F')],
+            # ['G B D ', cmaj.chord('G')],
+
+
+            # Minor triads
+            ['A C E ', cmaj.chord('Am')],
+            ['B D F# ', cmaj.chord('Bm')],
+            ['C Eb G ', cmaj.chord('Cm')],
+            ['D F A ', cmaj.chord('Dm')],
+            ['E G B ', cmaj.chord('Em')],
+            ['F Ab C ', cmaj.chord('Fm')],
+            ['G Bb D ', cmaj.chord('Gm')],
+
+            # Dominant 7s
+            ['C E G Bb ', cmaj.chord('C7')],
+
             ['C E G B ', cmaj.chord('CM7')],
             ['C E G B D ', cmaj.chord('CM9')],
             ['G B D ', cmaj.chord('G')],

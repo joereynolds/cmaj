@@ -44,9 +44,12 @@ def get_scale_type(key):
     'Parses' the key and gives back a suitable
     chromatic scale
     """
-    key = key.replace('7', '')
     key = key.replace('9', '')
+
     if 'b' in key or key in f.scales['flat']:
+        return f.scales['chromatic-flat']
+
+    if '7' in key:
         return f.scales['chromatic-flat']
 
     return f.scales['chromatic-sharp']
